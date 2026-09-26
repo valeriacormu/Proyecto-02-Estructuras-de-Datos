@@ -47,3 +47,26 @@ class IRelojProveedor(ABC):
 class RelojSistema(IRelojProveedor):
     def ahora(self) -> str:
         return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+
+class Auditor:
+    """
+    Motor de auditoría transaccional (SRP: coordina registro/lectura,
+    delega persistencia en IAuditWriter y la hora en IRelojProveedor).
+    """
+
+    def __init__(self, writer: IAuditWriter = None, reloj: IRelojProveedor = None):
+        self._writer = writer or ArchivoAuditWriter()
+        self._reloj = reloj or RelojSistema()
+
+    def registrar(self, evento: str) -> None:
+        marca_tiempo = self._reloj.ahora()
+        self._writer.escribir(f"[{marca_tiempo}] {evento}")
+
+    def leer_log(self) -> None:
+        contenido = self._writer.leer_todo()
+        if not contenido:
+            print("El registro de auditoría está vacío.")
+            return
+        print("=== Registro de Auditoría ===")
+        print(contenido)
