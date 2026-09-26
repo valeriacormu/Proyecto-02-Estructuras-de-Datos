@@ -5,6 +5,7 @@ de persistencia (IAuditWriter) y de tiempo (IRelojProveedor) (DIP).
 """
 
 from abc import ABC, abstractmethod
+from datetime import datetime
 import os
 
 
@@ -41,3 +42,8 @@ class IRelojProveedor(ABC):
     @abstractmethod
     def ahora(self) -> str:
         pass
+
+
+class RelojSistema(IRelojProveedor):
+    def ahora(self) -> str:
+        return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
