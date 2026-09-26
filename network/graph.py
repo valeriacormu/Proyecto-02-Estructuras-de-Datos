@@ -11,3 +11,9 @@ class IAuditor(ABC):
     @abstractmethod
     def registrar(self, evento: str) -> None:
         pass
+
+
+class AuditorNulo(IAuditor):
+    """Implementación nula (Null Object Pattern) — útil para tests sin efectos secundarios."""
+    def registrar(self, evento: str) -> None:
+        pass
