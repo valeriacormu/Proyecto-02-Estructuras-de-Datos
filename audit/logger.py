@@ -35,3 +35,9 @@ class ArchivoAuditWriter(IAuditWriter):
             return ""
         with open(self._ruta, "r", encoding="utf-8") as f:
             return f.read()
+
+
+class IRelojProveedor(ABC):
+    @abstractmethod
+    def ahora(self) -> str:
+        pass
