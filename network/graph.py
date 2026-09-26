@@ -93,3 +93,22 @@ class BFSDiagnostico:
                     cola.append(vecino)
 
         return visitados
+
+
+class DFSDiagnostico:
+    """Estrategia de diagnóstico de red mediante recorrido en profundidad (recursivo)."""
+
+    def recorrer(
+        self, adyacencia: Dict[str, List[Tuple[str, float]]], inicio: str, visitados: Optional[Set[str]] = None
+    ) -> Set[str]:
+        if visitados is None:
+            visitados = set()
+        if inicio not in adyacencia:
+            return visitados
+
+        visitados.add(inicio)
+        for vecino, _ in adyacencia[inicio]:
+            if vecino not in visitados:
+                self.recorrer(adyacencia, vecino, visitados)
+
+        return visitados
