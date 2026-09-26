@@ -73,3 +73,23 @@ class DijkstraStrategy(IAlgoritmoRuta):
         ruta.reverse()
 
         return ruta, costos_minimos[destino]
+
+
+class BFSDiagnostico:
+    """Estrategia de diagnóstico de red mediante recorrido en anchura."""
+
+    def recorrer(self, adyacencia: Dict[str, List[Tuple[str, float]]], inicio: str) -> Set[str]:
+        if inicio not in adyacencia:
+            return set()
+
+        visitados = {inicio}
+        cola = [inicio]
+
+        while cola:
+            actual = cola.pop(0)
+            for vecino, _ in adyacencia[actual]:
+                if vecino not in visitados:
+                    visitados.add(vecino)
+                    cola.append(vecino)
+
+        return visitados
