@@ -1,0 +1,32 @@
+# Bytecode y cache de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales
+venv/
+env/
+.venv/
+ENV/
+
+# Distribución / empaquetado
+build/
+dist/
+*.egg-info/
+
+# Archivo de auditoría generado en tiempo de ejecución
+network_audit_log.txt
+
+# Archivos de configuración de editores
+.vscode/
+.idea/
+*.swp
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Coverage / testing
+.coverage
+htmlcov/
+.pytest_cache/
