@@ -1,7 +1,12 @@
 # Proyecto-02-Estructuras-de-Datos
 Sistema de Archivos Distribuido y Enrutador de Red
 
-## 1. Sistema de Archivos "filesystem/tree.py"
+## Bitácora de Inteligencia Artificial
+
+Se documentan los prompts utilizados con Inteligencia Artificial Gemini como herramienta de apoyo, junto con la adaptación validación realizada para cumplir con los requerimientos y la arquitectura del sistema.
+
+### 1. Sistema de Archivos "filesystem/tree.py"
+
 
 * **Prompt:**
   > *"Genera la clase para un Árbol de directorios en Python aplicando los principios SOLID (SRP, OCP, LSP, DIP).*
@@ -25,6 +30,7 @@ Sistema de Archivos Distribuido y Enrutador de Red
 * **Prompt:**
   > *"Crea las pruebas unitarias en Python con unittest para validar el correcto funcionamiento de la navegación del árbol, la eliminación en cascada, la resolución de colisiones en la tabla hash y el rehashing automático."*
 * **Adaptación e Integración:**
+  - Se verificaron los casos de prueba ante rutas inexistentes, nombres duplicados en el mismo nivel de directorio y fallos de credenciales en la tabla hash.
   - Se verificaron los casos de prueba ante rutas inexistentes, nombres duplicados en el mismo nivel de directorio y fallos de credenciales en la tabla hash.
 
 ### 4. Topología y Enrutamiento de Red "network/graph.py"
