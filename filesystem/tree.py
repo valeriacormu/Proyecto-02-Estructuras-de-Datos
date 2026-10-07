@@ -136,6 +136,22 @@ class ArbolDirectorios:
                     self._liberar_subarbol(hijo)
         elemento.padre = None
 
+    # Búsqueda recursiva por nombre: recorre todas las ramas (DFS preorden)
+    # y devuelve las rutas absolutas de todas las coincidencias.
+    def buscar_recursivo(self, nombre: str) -> List[str]:
+        resultados: List[str] = []
+        self._buscar(self.raiz, "", nombre, resultados)
+        return resultados
+
+    def _buscar(self, nodo: ElementoSistemaArchivos, ruta: str, nombre: str, resultados: List[str]) -> None:
+        if nodo is not self.raiz:
+            ruta = f"{ruta}/{nodo.nombre}"
+            if nodo.nombre == nombre:
+                resultados.append(ruta)
+        if nodo.es_carpeta():
+            for hijo in nodo.hijos.values():
+                self._buscar(hijo, ruta, nombre, resultados)
+
     def mostrar_arbol(self, nodo_actual: Optional[ElementoSistemaArchivos] = None, nivel: int = 0) -> None:
         if nodo_actual is None:
             nodo_actual = self.raiz
