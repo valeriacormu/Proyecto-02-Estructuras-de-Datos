@@ -211,7 +211,7 @@ class Grafo:
         if not aislados:
             print("Todos los servidores están comunicados correctamente.")
         else:
-            print("Se detectaron servidores aislados:")
+            print(f"Se detectaron servidores aislados (sin conexión con {servidores[0]}):")
             for s in aislados:
                 print(f"  - {s}")
 
