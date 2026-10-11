@@ -23,7 +23,7 @@ Opción 11 del menú carga una red de ejemplo (usuario `admin` / `admin123` en c
 
 ## Bitácora de Inteligencia Artificial
 
-Se documentan los prompts utilizados con Inteligencia Artificial Gemini como herramienta de apoyo, junto con la adaptación validación realizada para cumplir con los requerimientos y la arquitectura del sistema.
+Se documentan los prompts utilizados con Inteligencia Artificial como herramienta de apoyo (Gemini en las secciones 1 a 3 y Claude en la sección 4 a 7), junto con la adaptación y validación realizada para cumplir con los requerimientos y la arquitectura del sistema.
 
 ### 1. Sistema de Archivos "filesystem/tree.py"
 
@@ -87,3 +87,4 @@ Se documentan los prompts utilizados con Inteligencia Artificial Gemini como her
   - Se escribió "AuditoriaTreeLogger" para que los logs del árbol (antes solo a consola) lleguen a "network_audit_log.txt" con el nombre del servidor.
   - Inicio de sesión exitoso/fallido, registro de usuarios y búsquedas quedan auditados; las contraseñas se guardan como SHA-256 en la tabla hash.
   - Se agregó "buscar_recursivo" (DFS preorden) al árbol y "tests/test_integracion.py".
+  - Se ajustó el mensaje del Ping General ("diagnostico_red") para indicar respecto a qué servidor se reporta el aislamiento.
